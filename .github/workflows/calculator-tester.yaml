@@ -30,7 +30,7 @@ jobs:
         dotnet restore Package.Test 
       
     - name: Build
-      run: dotnet build Package -configuration Release --no-restore
+      run: dotnet build Package --configuration Release --no-restore
     
     - name: Test
       run: dotnet test Package.Test --no-restore --verbosity normal
