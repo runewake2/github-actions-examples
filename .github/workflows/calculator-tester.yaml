@@ -25,10 +25,12 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Install dependencies
-      run: dotnet restore
+      run: |
+        dotnet restore Package
+        dotnet restore Package.Test 
       
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build Package -configuration Release --no-restore
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test Package.Test --no-restore --verbosity normal
